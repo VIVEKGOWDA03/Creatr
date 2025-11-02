@@ -139,7 +139,8 @@ export const getMyFollowers = query({
           followedAt: follow.createdAt,
           followsBack: !!followsBack,
           postCount: recentPosts.length,
-          lastPostAt: recentPosts.length > 0 ? recentPosts[0].publishedAt : null,
+          lastPostAt:
+            recentPosts.length > 0 ? recentPosts[0].publishedAt : null,
         };
       })
     );
@@ -199,7 +200,8 @@ export const getMyFollowing = query({
           followedAt: follow.createdAt,
           followerCount: followerCount.length,
           postCount: recentPosts.length,
-          lastPostAt: recentPosts.length > 0 ? recentPosts[0].publishedAt : null,
+          lastPostAt:
+            recentPosts.length > 0 ? recentPosts[0].publishedAt : null,
           recentPosts: recentPosts.map((post) => ({
             _id: post._id,
             title: post.title,
