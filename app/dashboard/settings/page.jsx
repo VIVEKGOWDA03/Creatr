@@ -34,7 +34,8 @@ const SettingsPage = () => {
     api.users.getCurrentUser
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const updateUsername = useConvexMutation(api.users.updateusername);
+  const updateUsername = useConvexMutation(api.users.updateUsername);
+
   // Form setup
   const form = useForm({
     resolver: zodResolver(usernameSchema),
