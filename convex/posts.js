@@ -5,8 +5,8 @@ import { internal } from "./_generated/api";
 // Get user's draft (there should only be one)
 export const getUserDraft = query({
   handler: async (ctx) => {
-    const user = await ctx.runQuery(internal.users.getCurrentUser); // exact casing
-    // ⚠️ match exact export name
+    const user = await ctx.runQuery(internal.users.getCurrentUser);
+    if (!user) return null; // handle safely
 
     const draft = await ctx.db
       .query("posts")
@@ -21,6 +21,7 @@ export const getUserDraft = query({
     return draft;
   },
 });
+
 
 //Create a new post
 

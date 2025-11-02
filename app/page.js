@@ -20,10 +20,26 @@ import {
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth, useClerk } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
+  const router = useRouter();
+  const handleStartJourney = (e) => {
+    e.preventDefault();
+    if (userId) {
+      // ✅ already logged in
+      router.push("/dashboard");
+    } else {
+      // 🚫 not logged in → open Clerk login modal
+      openSignIn({ afterSignInUrl: "/dashboard" });
+    }
+  };
+
+  const { userId } = useAuth(); // tells us if the user is logged in
+  const { openSignIn } = useClerk(); // allows opening the Clerk modal
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative ">
       <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-green-900/20 animate-puls" />
@@ -50,8 +66,9 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start">
-              <Link href={"/dashboard"}>
+              <Link href={""}>
                 <Button
+                onClick={handleStartJourney}
                   size="xl"
                   variant="primary"
                   className="rounded-full p-4 w-full sm:w-auto text-white"
@@ -277,8 +294,9 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/dashboard">
+            <Link href="">
               <Button
+                onClick={handleStartJourney}
                 size="xl"
                 variant="primary"
                 className="rounded-full p-4 text-white w-full"
