@@ -23,9 +23,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { api } from "@/convex/_generated/api";
-import { useConvexQuery } from "@/hooks/use-convex-query";
 import { formatDistanceToNow } from "date-fns";
 import DailyViewsChart from "@/components/daily-views-chart";
+import { useConvexQuery } from "@/hooks/user-convex-query";
 
 export default function DashboardPage() {
   // Fetch real data
