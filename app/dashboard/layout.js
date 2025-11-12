@@ -146,6 +146,7 @@ export default function DashboardLayout({ children }) {
               variant="outline"
               size="sm"
               className="w-full justify-start text-slate-300 hover:text-white rounded-xl p-4"
+              onClick={()=> setIsSidebarOpen(false)}
             >
               <Settings className="h-4 w-4 mr-2" />
               Settings

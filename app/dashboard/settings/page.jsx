@@ -86,7 +86,7 @@ const SettingsPage = () => {
     );
   }
   return (
-    <div>
+    <div className="p-10">
       <div>
         <h1 className="text-3xl font-bold gradient-text-primary">Settings</h1>
         <p className="text-slate-400 mt-2">
@@ -95,7 +95,7 @@ const SettingsPage = () => {
       </div>
 
       {/* Username Settings */}
-      <Card className="card-glass max-w-2xl">
+      <Card className="card-glass max-w-2xl mt-">
         <CardHeader>
           <CardTitle className="text-white flex items-center">
             <User className="h-5 w-5 mr-2" />

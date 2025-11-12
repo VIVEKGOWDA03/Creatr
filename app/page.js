@@ -68,7 +68,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start">
               <Link href={""}>
                 <Button
-                onClick={handleStartJourney}
+                  onClick={handleStartJourney}
                   size="xl"
                   variant="primary"
                   className="rounded-full p-4 w-full sm:w-auto text-white"
@@ -128,8 +128,8 @@ export default function Home() {
                   >
                     <feature.icon className="w-6 h-6 sm:w-4 sm:h-4 text-white" />
                   </div>
-                  <CardTitle>Card Title</CardTitle>
-                  <CardDescription>Card Description</CardDescription>
+                  <CardTitle> {feature.title}</CardTitle>
+                  <CardDescription>{feature.desc}</CardDescription>
                 </CardContent>
               </Card>
             ))}
